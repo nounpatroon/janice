@@ -22,7 +22,6 @@ int llist_insert(llist_st *self, char *buffer, int index);
 int llist_erase(llist_st *self, int index);
 int llist_get(llist_st *self, char *buffer, int index);
 int llist_lenght(llist_st *self);
-int llist_size(llist_st *self);
 int llist_clear(llist_st *self);
 
 #ifdef __cplusplus

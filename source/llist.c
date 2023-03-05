@@ -137,10 +137,6 @@ int llist_lenght(llist_st *self) {
     return count;
 }
 
-int llist_size(llist_st *self) {
-    return self->size;
-}
-
 int llist_clear(llist_st *self) {
     llist_st__ *current, *next;
 
