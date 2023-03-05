@@ -21,6 +21,12 @@ int main() {
   for(i = 0;i < 10;i++) {
     stack_pop(vertexes);
   }
+  stack_clear(vertexes);
+  for(i = 0;i < 5;i++) {
+    vertexes_->x = i+1; vertexes_->y = i+i;
+    stack_push(vertexes, (char*)vertexes_);
+  }
+  stack_clear(vertexes);
   for(i = 0;i < 5;i++) {
     vertexes_->x = i+1; vertexes_->y = (float)i + 1.25;
     stack_push(vertexes, (char*)vertexes_);
@@ -29,6 +35,7 @@ int main() {
   stack_pop(vertexes);
   stack_top(vertexes, (char*)vertexes_);
   
+  printf("vertexes total items: %d\r\n", stack_lenght(vertexes));
   printf("vertexes top: x:%d y:%f\r\n", vertexes_->x, vertexes_->y);
 
   stack_free(&vertexes, (char**)&vertexes_);

@@ -5,9 +5,9 @@
 
 #include "stack.h"
 
-int stack_alloc(stack_st **self, char **buffer, size_t size) {
+int stack_alloc(stack_st **self, char **buffer, int size) {
   (*self) = (stack_st*)malloc(sizeof(stack_st));
-  (*buffer) = (char*)malloc(sizeof(size));
+  (*buffer) = (char*)malloc(size);
 
   (*self)->size = size;
   (*self)->top = 0;
@@ -58,9 +58,22 @@ int stack_pop(stack_st *self) {
 int stack_top(stack_st *self, char *buffer) {
   if(!self->top) {
     memset(buffer, 0, self->size);
+    return false;
   } else {
     memcpy(buffer, self->items[self->top - 1], self->size);
+    return true;
+  }
+}
+
+int stack_lenght(stack_st *self) {
+  return self->top;
+}
+
+int stack_clear(stack_st *self) {
+  while(self->top) {
+    self->top--;
+    free(self->items[self->top]);
   }
 
-  return 0;
+  return true;
 }
