@@ -1,6 +1,6 @@
 
 CC := gcc
-CFLAGS := -g -Wall -Werror -O2
+CFLAGS := -g -Wall -Werror -O2 --std=c89
 LIBS := -lm
 
 all: linux
